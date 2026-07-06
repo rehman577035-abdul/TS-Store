@@ -493,6 +493,28 @@ product.style.display="none";
 		webhookUrl: 'https://unloved-errand-sled.ngrok-free.dev/webhook/df51a041-106e-4cb3-9e61-f9231c69930c/chat'
 	});
 </script>
+	<!-- N8N Mobile View Fix Script -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const injectMobileStyle = () => {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .n8n-chat-widget, #n8n-chat-widget, [class*="n8n-chat"], .n8n-chat-widget-window {
+          display: block !important;
+          visibility: visible !important;
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          z-index: 999999 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    };
+    injectMobileStyle();
+    // 3 seconds baad dubara check karega agar script late load ho
+    setTimeout(injectMobileStyle, 3000);
+  });
+</script>
 
 
 
